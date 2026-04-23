@@ -295,7 +295,7 @@
 
         // NORMA POLRI (TMS jika N > 15 atau L > 12)
         const isTMS = (skor.N > 15 || skor.L > 12);
-        const statusText = isTMS ? "TIDAK MEMENUHI SYARAT (TMS)" : "MEMENUHI SYARAT (MS)";
+        const statusText = isTMS ? "BELUM MEMENUHI STANDAR (PERLU KONSISTENSI)" : "MEMENUHI STANDAR (MS)";
 
         document.getElementById('body-hasil').innerHTML = `
             <tr><td><b>Extraversion (E)</b></td><td>${skor.E}</td><td>${skor.E > 12 ? 'Dominan Aktif' : 'Cenderung Pasif'}</td></tr>
