@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAT KEPRIBADIAN YA TIDAK (PASS HAND 2) | Persona Research & Consulting</title>
+    <title>CAT KEPRIBADIAN YA TIDAK (PASS HAND 1) | Persona Research & Consulting</title>
     <style>
         :root { --navy: #000033; --gold: #D4AF37; --bg: #FDFCF0; --white: #ffffff; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding: 20px; user-select: none; }
@@ -43,7 +43,7 @@
         /* Interpretation Box */
         .guide-box { margin-top: 30px; padding: 20px; background: #f0f4f8; border-radius: 10px; text-align: left; }
         .guide-box h3 { color: var(--navy); margin-top: 0; border-bottom: 2px solid var(--gold); display: inline-block; }
-        .guide-item { margin-bottom: 15px; font-size: 14px; line-height: 1.5; }
+        .guide-item { margin-bottom: 15px; }
         .guide-item b { color: #2c3e50; }
 
         @media (max-width: 600px) {
@@ -57,7 +57,7 @@
 <div id="main-container">
     <div class="header">
         <h2>Persona Research & Consulting</h2>
-        <div style="color: var(--gold); font-size: 13px; font-weight: bold; margin-top: 5px; letter-spacing: 1px;">CAT SYSTEM - KEPRIBADIAN PASS HAND 2</div>
+        <div style="color: var(--gold); font-size: 13px; font-weight: bold; margin-top: 5px; letter-spacing: 1px;">CAT SYSTEM - TES KEPRIBADIAN PASS HAND 1</div>
     </div>
 
     <div class="content">
@@ -107,17 +107,18 @@
             <div class="guide-box">
                 <h3>📖 Cara Membaca Hasil Kamu:</h3>
                 <div class="guide-item">
-                    <b>1. Extraversion (E):</b> Mengukur tingkat sosiabilitas. Skor tinggi menunjukkan Anda aktif dan komunikatif. Skor rendah menunjukkan Anda lebih tenang (introvert).
+                    <b>1. Extraversion (E):</b> Mengukur seberapa aktif kamu. Skor tinggi berarti kamu orang yang ceria, suka bergaul, dan penuh semangat. Skor rendah berarti kamu lebih tenang dan suka bekerja sendiri.
                 </div>
                 <div class="guide-item">
-                    <b>2. Neuroticism (N):</b> Mengukur kestabilan emosi. Di norma Polri, skor di atas 15 dianggap labil/berisiko stres tinggi.
+                    <b>2. Neuroticism (N):</b> Mengukur kestabilan emosi. Di seleksi Polri, skor ini <b>tidak boleh lebih dari 15</b>. Jika terlalu tinggi, tandanya kamu mudah cemas atau stres saat ada tekanan.
                 </div>
                 <div class="guide-item">
-                    <b>3. Psychoticism (P):</b> Mengukur kepatuhan aturan dan empati. Skor yang terkontrol menunjukkan pribadi yang kooperatif.
+                    <b>3. Psychoticism (P):</b> Mengukur kepedulian sosial. Skor yang normal menunjukkan kamu bisa mengikuti aturan dan punya rasa empati kepada orang lain.
                 </div>
                 <div class="guide-item">
-                    <b>4. Lie Scale (L):</b> Mengukur kejujuran. Skor di atas 12 menunjukkan kecenderungan ingin terlihat sempurna (Faking Good).
+                    <b>4. Lie Scale (L):</b> Ini adalah "skala kejujuran". Di seleksi Polri, skor ini <b>tidak boleh lebih dari 12</b>. Jika terlalu tinggi, sistem menganggap kamu sedang "berpura-pura baik" dan jawabanmu menjadi tidak valid.
                 </div>
+                <p style="font-size: 13px; color: #666; margin-top: 15px;"><i>*Tips: Berlatihlah untuk jujur pada diri sendiri agar hasil tes mencerminkan kepribadianmu yang asli!</i></p>
             </div>
             
             <button class="btn-start" style="margin-top:20px" onclick="location.reload()">KEMBALI KE BERANDA</button>
@@ -133,107 +134,108 @@
 <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztjdF9GAulyB4AIBZzMnECkrbqp4neEnC0ldMR6RXKqgoGrE0iD0NH1hnk8tO1X0c/exec";
 
+    // DATABASE 100 SOAL LENGKAP
     const bankSoal = [
-        "Saya merasa penuh energi saat harus mengerjakan banyak hal sekaligus.",
-        "Terkadang saya menunda pekerjaan yang membosankan.",
-        "Saya sering merasa khawatir tanpa alasan yang jelas.",
-        "Saya merasa sangat nyaman saat berada dalam sebuah pesta besar.",
-        "Saya lebih suka melakukan aktivitas sendirian daripada berkelompok.",
-        "Saya pernah melanggar instruksi kerja karena merasa cara saya lebih baik.",
-        "Kejujuran adalah nilai yang paling saya junjung tinggi.",
-        "Kritik kecil dari orang lain sering membuat saya merasa sedih.",
-        "Saya tetap bisa mengontrol diri meskipun sedang sangat marah.",
-        "Saya pernah berucap kurang sopan saat sedang sangat kesal.",
-        "Membantu orang lain secara sukarela membuat saya merasa senang.",
-        "Tiba-tiba saya bisa merasa tegang padahal tidak ada masalah.",
-        "Saya tidak ragu untuk segera mengambil keputusan penting.",
-        "Saya sering merasa tidak yakin apakah saya cukup berbakat.",
-        "Sejujurnya, saya pernah sedikit berbohong untuk menghindari konflik.",
-        "Bicara di depan banyak orang adalah sesuatu yang saya nikmati.",
-        "Masalah kecil terkadang terasa sangat melelahkan secara mental.",
-        "Dalam situasi darurat, saya tetap bisa berpikir secara tenang.",
-        "Terkadang muncul keinginan dalam hati untuk membalas perlakuan buruk orang.",
-        "Saya selalu patuh pada peraturan yang berlaku di masyarakat.",
-        "Bagi saya, bekerja sendiri jauh lebih efektif daripada kolaborasi.",
-        "Saya bisa berbaur dengan cepat di lingkungan pergaulan yang baru.",
-        "Saya sering memikirkan hal-hal buruk yang mungkin terjadi di masa depan.",
-        "Saya pernah mengambil barang milik orang lain meski nilainya kecil.",
-        "Saya sangat senang berkenalan dengan orang-orang baru.",
-        "Emosi saya seringkali meledak jika keinginan saya tidak dituruti.",
-        "Setiap tindakan saya selalu didasari oleh pertimbangan yang matang.",
-        "Saya pernah melanggar rambu lalu lintas secara sengaja.",
-        "Saya merasa memiliki kemampuan untuk memimpin kelompok.",
-        "Rasa rendah diri terkadang menghambat saya dalam bertindak.",
-        "Saya menerima masukan orang lain sebagai cara untuk belajar.",
-        "Saya sering merasa tidak tenang meskipun situasi sedang damai.",
-        "Saya pernah merasa sangat ingin menyakiti orang yang menyebalkan.",
-        "Menjaga kesantunan adalah hal yang sangat penting bagi saya.",
-        "Perasaan saya bisa berubah dari senang ke sedih dengan sangat cepat.",
-        "Menjadi perhatian utama dalam suatu acara membuat saya senang.",
-        "Saya mampu menahan keinginan impulsif dalam diri saya.",
-        "Terkadang saya melakukan sesuatu tanpa memikirkan dampaknya.",
-        "Saya dikenal sebagai orang yang ramah and mudah bergaul.",
-        "Ketakutan akan kegagalan seringkali menghantui pikiran saya.",
-        "Bagi saya, aturan adalah sesuatu yang tidak boleh dilanggar.",
-        "Saya pernah melakukan sedikit kecurangan agar urusan saya cepat selesai.",
-        "Tantangan yang sulit justru membuat saya semakin bersemangat.",
-        "Saya mudah panik jika terjadi sesuatu yang di luar rencana.",
-        "Saya bisa ikut merasakan kesedihan yang dialami orang lain.",
-        "Saya cenderung bereaksi keras jika merasa harga diri saya diusik.",
-        "Dalam menyelesaikan masalah, saya lebih mengandalkan logika.",
-        "Rasa sedih yang mendalam terkadang datang secara tiba-tiba.",
-        "Saya suka jika orang lain memperhatikan apa yang saya kerjakan.",
-        "Saya lebih memilih diam daripada harus bertengkar dengan orang lain.",
-        "Menyelesaikan tanggung jawab adalah kewajiban nomor satu bagi saya.",
-        "Kadang saya ingin melepaskan semua tanggung jawab yang saya pikul.",
-        "Secara umum, saya memiliki kondisi psikis yang stabil.",
-        "Beban hidup seringkali membuat saya merasa sangat stres.",
-        "Saya memegang teguh janji yang telah saya buat.",
-        "Saya pernah memberikan alasan palsu agar tidak disalahkan.",
-        "Saya bisa menyesuaikan diri dengan cepat saat teknologi baru muncul.",
-        "Rasa takut akan masa depan sering membuat saya sulit tidur.",
-        "Saya adalah orang yang sangat tertib dan disiplin.",
-        "Saya pernah mengabaikan kesepakatan karena alasan pribadi.",
-        "Saya tidak pernah menyesali keputusan yang sudah saya ambil.",
-        "Pikiran saya jarang bisa merasa tenang saat sedang sendirian.",
-        "Saya tetap bersikap tenang meski ada orang yang memancing amarah.",
-        "Saya pernah mengumpat karena merasa sangat kecewa.",
-        "Menjalin hubungan baik dengan semua orang adalah kebiasaan saya.",
-        "Saya sering merasa cemas jika orang lain membicarakan saya.",
-        "Saya memiliki pengendalian diri yang sangat baik.",
-        "Saya sering melakukan sesuatu hanya karena mengikuti dorongan hati.",
-        "Etika dalam bertindak adalah hal yang wajib saya ikuti.",
-        "Saya selalu berusaha mencari solusi untuk memperbaiki diri.",
-        "Membantu sesama adalah bagian dari prinsip hidup saya.",
-        "Menghadapi situasi baru sering membuat saya merasa gugup.",
-        "Saya berani mengambil risiko untuk mencapai tujuan.",
-        "Saya sering merasa ragu apakah pilihan saya sudah tepat.",
-        "Saya pernah secara tidak sengaja membocorkan rahasia teman.",
-        "Saya merasa sangat percaya diri saat harus presentasi.",
-        "Masalah sepele terkadang membuat energi mental saya terkuras.",
-        "Saya adalah orang yang mampu tenang di tengah kekacauan.",
-        "Saya pernah merasa sangat benci terhadap seseorang.",
-        "Saya selalu mengikuti petunjuk atasan dengan patuh.",
-        "Bekerja tanpa gangguan orang lain membuat saya lebih produktif.",
-        "Perubahan rencana mendadak tidak membuat saya bingung.",
-        "Saya sering merasa was-was meskipun tidak ada ancaman nyata.",
-        "Saya pernah memakai fasilitas umum untuk kepentingan pribadi saya.",
-        "Bertemu dengan banyak orang adalah cara saya melepas penat.",
-        "Kesabaran saya cukup luas dalam menghadapi orang yang rumit.",
-        "Saya selalu merencanakan segala sesuatu dengan sangat detail.",
-        "Saya pernah melanggar norma sosial demi mencapai keinginan saya.",
-        "Saya merasa mampu meyakinkan orang lain dengan pendapat saya.",
-        "Saya sering merasa rendah diri saat membandingkan diri dengan orang lain.",
-        "Saya adalah orang yang konsisten dengan prinsip hidup saya.",
-        "Saya sering merasa bingung jika harus memilih di antara dua hal.",
-        "Kadang saya merasa hidup saya tidak memiliki arah yang jelas.",
-        "Saya sangat menghargai privasi dan hak-hak orang lain.",
-        "Berada di tengah keramaian terkadang justru membuat saya merasa sepi.",
-        "Saya menyukai tantangan baru yang memacu adrenalin.",
-        "Saya merasa diri saya memiliki kelebihan dibanding rekan yang lain.",
-        "Saya adalah pribadi yang mudah memaafkan kesalahan orang lain.",
-        "Saya sangat teliti dalam mengerjakan setiap detail tugas.",
-        "Saya mudah merasa jenuh jika harus melakukan hal yang sama berulang-ulang."
+        {id:1, q:"Apakah Anda sering merasa ingin cepat-cepat menyelesaikan sesuatu?"},
+        {id:2, q:"Apakah Anda termasuk orang yang banyak bicara?"},
+        {id:3, q:"Apakah Anda sering merasa khawatir akan hal-hal yang belum terjadi?"},
+        {id:4, q:"Apakah Anda pernah mengambil barang milik orang lain (meski sekecil peniti)?"},
+        {id:5, q:"Apakah Anda merasa bahagia jika melihat orang yang Anda benci gagal?"},
+        {id:6, q:"Apakah Anda mudah merasa tersinggung oleh ucapan teman?"},
+        {id:7, q:"Apakah Anda lebih suka bekerja sendiri daripada dalam tim?"},
+        {id:8, q:"Apakah Anda selalu menepati janji, apa pun rintangannya?"},
+        {id:9, q:"Apakah Anda sering merasa bosan dengan rutinitas yang itu-itu saja?"},
+        {id:10, q:"Apakah Anda pernah merasa benci pada orang tua Anda?"},
+        {id:11, q:"Apakah Anda merasa tegang saat harus berbicara dengan atasan?"},
+        {id:12, q:"Apakah Anda suka melakukan hal-hal yang menantang bahaya?"},
+        {id:13, q:"Apakah Anda pernah berpura-pura sakit untuk menghindari tugas?"},
+        {id:14, q:"Apakah Anda sering merasa sulit tidur karena memikirkan masalah?"},
+        {id:15, q:"Apakah Anda merasa puas jika bisa membalas dendam?"},
+        {id:16, q:"Apakah Anda tipe orang yang mudah bergaul di lingkungan baru?"},
+        {id:17, q:"Apakah Anda pernah berbohong untuk menyelamatkan diri sendiri?"},
+        {id:18, q:"Apakah Anda sering merasa lelah tanpa alasan yang jelas?"},
+        {id:19, q:"Apakah Anda setuju bahwa aturan dibuat untuk dilanggar dalam keadaan darurat?"},
+        {id:20, q:"Apakah Anda sering merasa kesepian meskipun berada di tengah keramaian?"},
+        {id:21, q:"Apakah Anda selalu mencuci tangan sebelum makan tanpa kecuali?"},
+        {id:22, q:"Apakah Anda lebih suka merencanakan sesuatu daripada langsung bertindak?"},
+        {id:23, q:"Apakah Anda merasa sulit untuk memaafkan orang yang mengkhianati Anda?"},
+        {id:24, q:"Apakah Anda sering merasa grogi saat menjadi pusat perhatian?"},
+        {id:25, q:"Apakah Anda pernah merasa sangat marah hingga merusak barang?"},
+        {id:26, q:"Apakah Anda suka mengikuti kegiatan organisasi atau komunitas?"},
+        {id:27, q:"Apakah Anda selalu jujur dalam setiap perkataan Anda?"},
+        {id:28, q:"Apakah Anda sering merasa nasib Anda lebih buruk dari orang lain?"},
+        {id:29, q:"Apakah Anda menikmati perdebatan yang sengit?"},
+        {id:30, q:"Apakah Anda sering merasa cemas jika pekerjaan belum selesai sempurna?"},
+        {id:31, q:"Apakah Anda pernah membicarakan kejelekan teman di belakangnya?"},
+        {id:32, q:"Apakah Anda merasa nyaman memimpin sebuah kelompok?"},
+        {id:33, q:"Apakah Anda sering merasa sedih tanpa alasan yang pasti?"},
+        {id:34, q:"Apakah Anda pernah melanggar lampu lalu lintas saat jalanan sepi?"},
+        {id:35, q:"Apakah Anda suka menolong orang lain meskipun Anda sedang repot?"},
+        {id:36, q:"Apakah Anda sering merasa terburu-buru dalam melakukan aktivitas?"},
+        {id:37, q:"Apakah Anda merasa sulit untuk menahan emosi saat dikritik?"},
+        {id:38, q:"Apakah Anda lebih suka membaca buku daripada pergi ke pesta?"},
+        {id:39, q:"Apakah Anda pernah merasa ingin meninggalkan rumah selamanya?"},
+        {id:40, q:"Apakah Anda selalu membuang sampah pada tempatnya tanpa kecuali?"},
+        {id:41, q:"Apakah Anda sering meragukan kemampuan diri sendiri?"},
+        {id:42, q:"Apakah Anda suka mencoba makanan yang belum pernah Anda kenal?"},
+        {id:43, q:"Apakah Anda merasa senang jika diperintah oleh orang yang lebih muda?"},
+        {id:44, q:"Apakah Anda sering merasa bahwa orang lain tidak mengerti Anda?"},
+        {id:45, q:"Apakah Anda pernah datang terlambat ke suatu pertemuan?"},
+        {id:46, q:"Apakah Anda termasuk orang yang ceria dan penuh semangat?"},
+        {id:47, q:"Apakah Anda sering merasa pusing jika menghadapi tekanan berat?"},
+        {id:48, q:"Apakah Anda setuju bahwa kekerasan kadang diperlukan untuk mendidik?"},
+        {id:49, q:"Apakah Anda selalu berdoa setiap kali memulai aktivitas?"},
+        {id:50, q:"Apakah Anda sering merasa sulit untuk berkonsentrasi?"},
+        {id:51, q:"Apakah Anda suka membuat orang lain tertawa dengan lelucon Anda?"},
+        {id:52, q:"Apakah Anda pernah merasa iri dengan keberhasilan teman dekat?"},
+        {id:53, q:"Apakah Anda merasa yakin bisa mengendalikan diri dalam situasi konflik?"},
+        {id:54, q:"Apakah Anda sering merasa ingin tahu urusan pribadi orang lain?"},
+        {id:55, q:"Apakah Anda pernah berpikir untuk mengakhiri hidup saat menghadapi masalah besar?"},
+        {id:56, q:"Apakah Anda senang berteman dengan siapa saja tanpa membedakan status?"},
+        {id:57, q:"Apakah Anda selalu merapikan tempat tidur setelah bangun?"},
+        {id:58, q:"Apakah Anda sering merasa jantung berdebar kencang saat menunggu giliran?"},
+        {id:59, q:"Apakah Anda suka melakukan pekerjaan yang membutuhkan ketelitian tinggi?"},
+        {id:60, q:"Apakah Anda pernah mengambil keuntungan dari kelemahan orang lain?"},
+        {id:61, q:"Apakah Anda termasuk orang yang mudah percaya pada janji orang lain?"},
+        {id:62, q:"Apakah Anda sering merasa tidak puas dengan hasil kerja Anda sendiri?"},
+        {id:63, q:"Apakah Anda lebih suka diam saat terjadi perdebatan?"},
+        {id:64, q:"Apakah Anda pernah meminjam uang dan lupa mengembalikannya?"},
+        {id:65, q:"Apakah Anda merasa berani membela kebenaran meskipun berisiko?"},
+        {id:66, q:"Apakah Anda sering merasa gelisah jika harus tinggal di rumah sendirian?"},
+        {id:67, q:"Apakah Anda suka menonton pertandingan olahraga yang keras (misal: tinju)?"},
+        {id:68, q:"Apakah Anda selalu menghargai pendapat orang lain meskipun berbeda?"},
+        {id:69, q:"Apakah Anda pernah berkata kasar pada orang yang lebih tua?"},
+        {id:70, q:"Apakah Anda sering merasa bangga dengan pencapaian Anda?"},
+        {id:71, q:"Apakah Anda mudah merasa bosan jika harus duduk diam dalam waktu lama?"},
+        {id:72, q:"Apakah Anda sering merasa curiga terhadap niat baik orang lain?"},
+        {id:73, q:"Apakah Anda merasa sanggup bekerja di bawah pengawasan ketat?"},
+        {id:74, q:"Apakah Anda pernah merasa ingin memukul orang yang menjengkelkan?"},
+        {id:75, q:"Apakah Anda termasuk orang yang rapi dalam menyusun berkas?"},
+        {id:76, q:"Apakah Anda sering merasa takut akan masa depan Anda?"},
+        {id:77, q:"Apakah Anda suka mengambil risiko demi mendapatkan sesuatu yang besar?"},
+        {id:78, q:"Apakah Anda selalu menaati instruksi pimpinan tanpa membantah?"},
+        {id:79, q:"Apakah Anda pernah membuang surat atau pesan tanpa membacanya?"},
+        {id:80, q:"Apakah Anda merasa mudah untuk memulai percakapan dengan orang asing?"},
+        {id:81, q:"Apakah Anda sering merasa suasana hati Anda berubah secara tiba-tiba?"},
+        {id:82, q:"Apakah Anda setuju bahwa kejujuran adalah segalanya dalam bekerja?"},
+        {id:83, q:"Apakah Anda pernah merasa tidak dipedulikan oleh lingkungan Anda?"},
+        {id:84, q:"Apakah Anda suka melakukan sesuatu secara mendadak/spontan?"},
+        {id:85, q:"Apakah Anda selalu bersikap sopan kepada siapa pun?"},
+        {id:86, q:"Apakah Anda sering merasa menyesal setelah melakukan sesuatu?"},
+        {id:87, q:"Apakah Anda merasa lebih produktif bekerja pada malam hari?"},
+        {id:88, q:"Apakah Anda pernah menertawakan orang yang sedang kesusahan?"},
+        {id:89, q:"Apakah Anda merasa siap ditempatkan di mana saja di seluruh Indonesia?"},
+        {id:90, q:"Apakah Anda sering merasa gemetar saat harus menghadapi ujian?"},
+        {id:91, q:"Apakah Anda suka membantu pekerjaan rumah tangga tanpa diminta?"},
+        {id:92, q:"Apakah Anda pernah merasa ingin memiliki kekuatan untuk balas dendam?"},
+        {id:93, q:"Apakah Anda termasuk orang yang sabar saat mengantre panjang?"},
+        {id:94, q:"Apakah Anda sering merasa bingung menentukan pilihan hidup?"},
+        {id:95, q:"Apakah Anda selalu membayar hutang tepat pada waktunya?"},
+        {id:96, q:"Apakah Anda suka berpetualang ke tempat yang terpencil?"},
+        {id:97, q:"Apakah Anda merasa sulit untuk mengakui kesalahan Anda?"},
+        {id:98, q:"Apakah Anda sering merasa bahwa hidup ini tidak adil?"},
+        {id:99, q:"Apakah Anda selalu menjaga rahasia yang dipercayakan kepada Anda?"},
+        {id:100, q:"Apakah Anda merasa yakin bahwa Anda akan lulus seleksi ini?"}
     ];
 
     let currentIdx = 0;
@@ -243,8 +245,10 @@
     function mulaiKuis() {
         userName = document.getElementById('input-nama').value.trim();
         if (!userName) return alert("Silakan masukkan nama Anda.");
+        
         document.getElementById('login-area').style.display = 'none';
         document.getElementById('quiz-area').style.display = 'block';
+        
         const grid = document.getElementById('nav-grid');
         for (let i = 1; i <= 100; i++) {
             let dot = document.createElement('div');
@@ -256,7 +260,7 @@
     }
 
     function tampilkanSoal() {
-        document.getElementById('display-soal').innerText = bankSoal[currentIdx];
+        document.getElementById('display-soal').innerText = bankSoal[currentIdx].q;
         document.getElementById('no-skr').innerText = `Soal ${currentIdx + 1} / 100`;
         const dots = document.querySelectorAll('.dot');
         dots.forEach((d, i) => {
@@ -278,19 +282,20 @@
 
         let skor = { E: 0, N: 0, P: 0, L: 0 };
 
-        // LOGIKA SKORING (YA = +1)
-        [1, 4, 16, 22, 25, 36, 39, 43, 49, 73, 76, 85, 89, 96, 97].forEach(n => { if(jawabanUser[n-1]==='YA') skor.E++; });
-        [3, 8, 12, 14, 17, 23, 26, 30, 32, 35, 40, 44, 48, 52, 54, 58, 62, 66, 72, 74, 77, 83, 90, 92, 93, 95, 100].forEach(n => { if(jawabanUser[n-1]==='YA') skor.N++; });
-        [6, 10, 15, 19, 24, 28, 33, 38, 42, 46, 56, 60, 64, 68, 75, 79, 84, 88].forEach(n => { if(jawabanUser[n-1]==='YA') skor.P++; });
-        [7, 9, 11, 18, 20, 27, 31, 34, 37, 41, 45, 47, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 70, 71, 78, 80, 82, 86, 87, 91, 94, 98, 99].forEach(n => { if(jawabanUser[n-1]==='YA') skor.L++; });
+        // LOGIKA SKORING PRESISI NORMA (YA = +1)
+        [2, 12, 16, 26, 32, 42, 46, 51, 56, 71, 77, 80, 84, 87, 96].forEach(n => { if(jawabanUser[n-1]==='YA') skor.E++; });
+        [3, 6, 11, 14, 18, 20, 24, 28, 30, 33, 37, 41, 44, 47, 50, 55, 58, 62, 66, 72, 76, 81, 83, 86, 90, 94, 98].forEach(n => { if(jawabanUser[n-1]==='YA') skor.N++; });
+        [5, 15, 19, 23, 25, 29, 39, 48, 54, 60, 67, 74, 92].forEach(n => { if(jawabanUser[n-1]==='YA') skor.P++; });
+        [8, 21, 27, 40, 49, 57, 78].forEach(n => { if(jawabanUser[n-1]==='YA') skor.L++; });
 
         // REVERSE SCORING (TIDAK = +1)
-        [5, 21, 50, 81].forEach(n => { if(jawabanUser[n-1]==='TIDAK') skor.E++; });
-        [2, 29, 37, 67, 78, 80, 86, 87, 91, 94, 98, 99].forEach(n => { if(jawabanUser[n-1]==='TIDAK') skor.P++; });
-        // L scale reverse logic for self-deprecation items (rarely used in basic EPQ but added for balance)
+        [7, 22, 38, 63].forEach(n => { if(jawabanUser[n-1]==='TIDAK') skor.E++; });
+        [9, 35, 53, 65, 68, 73, 75, 82, 85, 89, 91, 93, 95].forEach(n => { if(jawabanUser[n-1]==='TIDAK') skor.P++; });
+        [4, 10, 13, 17, 31, 34, 45, 52, 64, 69, 79, 88, 97, 99].forEach(n => { if(jawabanUser[n-1]==='TIDAK') skor.L++; });
 
+        // NORMA POLRI (TMS jika N > 15 atau L > 12)
         const isTMS = (skor.N > 15 || skor.L > 12);
-        const statusText = isTMS ? "TIDAK MEMENUHI SYARAT (TMS)" : "MEMENUHI SYARAT (MS)";
+        const statusText = isTMS ? "BELUM MEMENUHI STANDAR (PERLU KONSISTENSI)" : "MEMENUHI STANDAR (MS)";
 
         document.getElementById('body-hasil').innerHTML = `
             <tr><td><b>Extraversion (E)</b></td><td>${skor.E}</td><td>${skor.E > 12 ? 'Dominan Aktif' : 'Cenderung Pasif'}</td></tr>
@@ -303,6 +308,7 @@
         badge.innerText = statusText;
         badge.className = `badge ${isTMS ? 'tms' : 'ms'}`;
 
+        // KIRIM KE GOOGLE SHEET
         fetch(SCRIPT_URL, {
             method: "POST",
             mode: "no-cors",
@@ -317,6 +323,7 @@
         });
     }
 
+    // SECURITY SCRIPT
     document.onkeydown = function(e) {
         if(e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 83)) return false;
         if(e.keyCode === 123) return false;
