@@ -3,298 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAT KEPRIBADIAN (PASS HAND 2) | Persona Research & Consulting</title>
+    <title>Persona Research & Consulting - PASS HAND 2</title>
     <style>
         :root { --navy: #000033; --gold: #D4AF37; --bg: #FDFCF0; --white: #ffffff; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding: 20px; user-select: none; }
-        #main-container { max-width: 850px; margin: auto; background: var(--white); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid var(--gold); overflow: hidden; }
-        .header { background: var(--navy); color: white; padding: 25px; text-align: center; border-bottom: 4px solid var(--gold); }
-        .header h2 { margin: 0; letter-spacing: 2px; text-transform: uppercase; }
-        .content { padding: 30px; }
-        .instruction-box { background: #fffcf0; border-left: 5px solid var(--gold); padding: 20px; margin-bottom: 25px; font-size: 14px; color: #5d4037; }
-        input[type="text"] { width: 100%; padding: 15px; margin: 20px 0; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box; }
-        .btn-start { width: 100%; padding: 18px; background: var(--gold); border: none; font-weight: bold; border-radius: 8px; cursor: pointer; color: var(--navy); text-transform: uppercase; }
-        #quiz-area, #result-area { display: none; }
-        .q-text { font-size: 1.4em; font-weight: 600; text-align: center; margin: 40px 0; min-height: 100px; color: var(--navy); line-height: 1.5; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding: 15px; user-select: none; }
+        #main-container { width: 100%; max-width: 650px; margin: auto; background: var(--white); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 8px solid var(--gold); overflow: hidden; margin-bottom: 50px; }
+        .header { background: var(--navy); color: white; padding: 25px; text-align: center; }
+        .header h2 { margin: 0; font-size: 1.3em; text-transform: uppercase; letter-spacing: 1px; }
+        .header p { margin: 5px 0 0; font-size: 0.8em; color: var(--gold); font-weight: bold; }
+        .content { padding: 20px; }
+        .nav-container { margin-top: 20px; padding: 15px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .nav-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+        .nav-item { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 11px; background: #fff; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        .nav-item.active { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+        .nav-item.filled { background: var(--navy); color: white; border-color: var(--navy); }
+        .q-card { min-height: 120px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 600; font-size: 1.2em; color: var(--navy); margin: 20px 0; line-height: 1.6; padding: 0 10px; }
         .opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .btn-opt { padding: 25px; border: 2px solid #eee; border-radius: 12px; cursor: pointer; text-align: center; font-weight: bold; font-size: 1.3em; background: #fff; }
-        .btn-opt:hover { border-color: var(--gold); background: #fffcf0; }
-        #nav-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
-        .dot { font-size: 10px; height: 30px; display: flex; align-items: center; justify-content: center; background: #eee; border-radius: 4px; color: #999; }
-        .dot.done { background: var(--gold); color: white; }
-        .badge { padding: 15px; border-radius: 8px; font-weight: bold; font-size: 1.2em; margin: 20px 0; text-align: center; display: block; }
-        .ms { background: #dcfce7; color: #166534; border: 1px solid #166534; }
-        .tms { background: #fff7ed; color: #9a3412; border: 1px solid #9a3412; }
-        .invalid { background: #fee2e2; color: #991b1b; border: 1px solid #991b1b; }
-        .interpretasi-box { background: #fdfdfd; padding: 25px; border-radius: 10px; text-align: left; margin-top: 25px; border: 1px solid #efefef; }
-        .interpretasi-box h4 { margin-top: 0; color: var(--navy); border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; margin-bottom: 15px;}
-        .section-title { font-weight: bold; color: var(--navy); margin-top: 15px; display: block; }
-        .narasi-text { line-height: 1.8; font-size: 15px; color: #334155; }
+        .btn-opt { padding: 20px; border: 2px solid #eee; border-radius: 15px; cursor: pointer; text-align: center; font-weight: bold; font-size: 1.3em; transition: 0.3s; background: #fff; color: var(--navy); }
+        .btn-opt.selected { background: var(--gold); border-color: var(--gold); transform: scale(1.05); }
+        .res-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .res-table th, .res-table td { border: 1px solid #e2e8f0; padding: 12px; text-align: center; font-size: 14px; }
+        .res-table th { background: #f1f5f9; color: var(--navy); }
+        .badge { padding: 20px; border-radius: 12px; font-weight: bold; text-align: center; margin: 20px 0; font-size: 1.2em; border: 2px solid; }
+        .ms { background: #e8f5e9; color: #2e7d32; border-color: #2e7d32; }
+        .tms { background: #fff3e0; color: #ef6c00; border-color: #ef6c00; }
+        .interpretasi-box { background: #f1f5f9; padding: 25px; border-radius: 15px; border: 1px solid #ddd; text-align: left; }
+        .interpretasi-box h4 { margin-top: 0; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 8px; margin-bottom: 15px; }
+        .interpretasi-box p { font-size: 14px; line-height: 1.7; color: #444; margin-bottom: 15px; text-align: justify; }
+        .btn-main { width: 100%; padding: 18px; background: var(--gold); border: none; font-weight: bold; border-radius: 12px; cursor: pointer; color: var(--navy); text-transform: uppercase; margin-top: 15px; font-size: 14px; }
+        @media print { .btn-main, .nav-container, .opt-grid, #login-area { display: none !important; } }
     </style>
 </head>
 <body oncontextmenu="return false">
 
 <div id="main-container">
     <div class="header">
-        <h2>Persona Research</h2>
-        <div style="color: var(--gold); font-size: 13px; font-weight: bold; letter-spacing: 1px;">MODUL EVALUASI KEPRIBADIAN (A2)</div>
+        <h2>Persona Research & Consulting</h2>
+        <p>CAT SYSTEM - EVALUASI KEPRIBADIAN (PASS HAND 2)</p>
     </div>
 
     <div class="content">
         <div id="login-area">
-            <div class="instruction-box">
-                <b>Hai!</b> Tes tahap kedua ini lebih mendalam untuk melihat bagaimana cara Anda bekerja dan menghadapi tantangan. Pilih jawaban yang paling menggambarkan diri Anda sekarang.
-            </div>
-            <input type="text" id="input-nama" placeholder="Ketik Nama Lengkap Anda..." autocomplete="off">
-            <button class="btn-start" onclick="mulaiKuis()">MULAI ANALISIS</button>
+            <h3 style="text-align:center; color:var(--navy)">Identitas Peserta</h3>
+            <input type="text" id="user-name" placeholder="Ketik Nama Lengkap Anda..." style="width:100%; padding:18px; text-align:center; border-radius:12px; border:2px solid #ddd; margin-bottom:20px; font-size:16px; box-sizing: border-box;">
+            <button class="btn-main" onclick="startTest()">Mulai Assessment PH-2</button>
         </div>
 
-        <div id="quiz-area">
-            <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:10px;">
-                <span id="no-skr">Soal 1 / 100</span>
-                <span style="color:var(--gold)">PERSONA ANALYTICS</span>
+        <div id="quiz-area" style="display:none">
+            <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:bold; color:#888; margin-bottom:10px;">
+                <span id="q-progress">Soal 1 / 100</span>
+                <span id="label-user" style="color:var(--navy); text-transform: uppercase;"></span>
             </div>
-            <div class="q-text" id="display-soal">Memuat...</div>
+            <div class="q-card" id="q-text">Memuat soal...</div>
             <div class="opt-grid">
-                <div class="btn-opt" onclick="simpan('YA')">YA</div>
-                <div class="btn-opt" onclick="simpan('TIDAK')">TIDAK</div>
+                <button class="btn-opt" id="btn-ya" onclick="recordAnswer('YA')">YA</button>
+                <button class="btn-opt" id="btn-tidak" onclick="recordAnswer('TIDAK')">TIDAK</button>
             </div>
-            <div id="nav-grid"></div>
+            <div class="nav-container">
+                <div class="nav-grid" id="nav-grid"></div>
+            </div>
         </div>
 
-        <div id="result-area" style="text-align: center;">
-            <h3 style="color: var(--navy);">LAPORAN KARAKTER KERJA</h3>
-            <p id="status-cloud" style="color: #3b82f6; font-size: 12px;">Menyambungkan ke database...</p>
-            
-            <div id="badge-final"></div>
-
-            <div class="interpretasi-box">
-                <h4>GAMBARAN KEPRIBADIAN ANDA:</h4>
-                <div id="narrative-text" class="narasi-text"></div>
+        <div id="result-area" style="display:none">
+            <div style="text-align:center; margin-bottom:20px;">
+                <h3 style="margin:0; color:var(--navy); font-size:1.4em;">HASIL EVALUASI PSIKOLOGI (PH-2)</h3>
+                <h2 id="display-nama" style="margin: 10px 0; color: var(--gold); text-transform: uppercase;"></h2>
+                <p id="report-date" style="font-size:12px; color:#666;"></p>
             </div>
-            
-            <button class="btn-start" style="margin-top:20px" onclick="location.reload()">MULAI ULANG</button>
+            <table class="res-table">
+                <thead><tr><th>Aspek Kepribadian</th><th>Skor</th><th>Keterangan</th></tr></thead>
+                <tbody id="res-table-body"></tbody>
+            </table>
+            <div id="res-badge"></div>
+            <div class="interpretasi-box">
+                <h4>📖 Analisis Hasil Anda:</h4>
+                <div id="narrative-text"></div>
+            </div>
+            <button class="btn-main" onclick="window.print()">📥 Download Laporan (PDF)</button>
         </div>
     </div>
 </div>
 
 <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztjdF9GAulyB4AIBZzMnECkrbqp4neEnC0ldMR6RXKqgoGrE0iD0NH1hnk8tO1X0c/exec";
-
-    const AssessmentEngine = {
-        analyze(jawaban) {
-            let s = { E: 0, N: 0, P: 0, L: 0 };
-            const w = {
-                E_YA: [1, 4, 16, 22, 25, 36, 39, 43, 49, 73, 76, 85, 89, 96, 97],
-                E_TIDAK: [5, 21, 50, 81],
-                N_YA: [3, 8, 12, 14, 17, 23, 26, 30, 32, 35, 40, 44, 48, 52, 54, 58, 62, 66, 72, 74, 77, 83, 90, 92, 93, 95, 100],
-                P_YA: [6, 10, 15, 19, 24, 28, 33, 38, 42, 46, 56, 60, 64, 68, 75, 79, 84, 88],
-                P_TIDAK: [2, 29, 37, 67, 78, 80, 86, 87, 91, 94, 98, 99],
-                L_YA: [7, 9, 11, 18, 20, 27, 31, 34, 37, 41, 45, 47, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 70, 71, 78, 80, 82, 86, 87, 91, 94, 98, 99]
-            };
-
-            w.E_YA.forEach(n => { if(jawaban[n-1] === 'YA') s.E++ });
-            w.E_TIDAK.forEach(n => { if(jawaban[n-1] === 'TIDAK') s.E++ });
-            w.N_YA.forEach(n => { if(jawaban[n-1] === 'YA') s.N++ });
-            w.P_YA.forEach(n => { if(jawaban[n-1] === 'YA') s.P++ });
-            w.P_TIDAK.forEach(n => { if(jawaban[n-1] === 'TIDAK') s.P++ });
-            w.L_YA.forEach(n => { if(jawaban[n-1] === 'YA') s.L++ });
-
-            let status = "Memenuhi Standar";
-            let narasi = "";
-
-            // --- INTERPRETASI DETAIL BAHASA AWAM ---
-            
-            // 1. CARA BERGAUL (E)
-            let gayaBergaul = "";
-            if(s.E > 15) {
-                gayaBergaul = "<b>Sangat Ekspresif:</b> Anda orang yang ceria dan penuh energi. Anda suka jadi pusat perhatian dan jago menghidupkan suasana tim. Posisi yang butuh banyak negosiasi sangat cocok untuk Anda.";
-            } else if (s.E >= 10) {
-                gayaBergaul = "<b>Fleksibel:</b> Anda tahu kapan harus bicara dan kapan harus mendengarkan. Anda bisa membaur dengan berbagai macam karakter orang tanpa merasa canggung.";
-            } else {
-                gayaBergaul = "<b>Pengamat yang Baik:</b> Anda cenderung tertutup dan kalem. Anda lebih nyaman bekerja dengan data atau benda daripada harus terus-menerus bicara dengan orang baru.";
-            }
-
-            // 2. KEMATANGAN EMOSI (N)
-            let kematanganEmosi = "";
-            if(s.N > 18) {
-                kematanganEmosi = "<b>Perlu Pendampingan:</b> Anda sering merasa terbebani oleh pikiran sendiri. Mood Anda gampang berubah kalau ada tekanan mendadak. Anda butuh waktu lebih banyak untuk menenangkan diri.";
-            } else if (s.N >= 11) {
-                kematanganEmosi = "<b>Cukup Tenang:</b> Anda masih bisa berpikir logis saat sedang banyak masalah, meskipun kadang ada rasa khawatir muncul. Anda punya kontrol diri yang lumayan baik.";
-            } else {
-                kematanganEmosi = "<b>Sangat Matang:</b> Anda orang yang punya 'mental baja'. Sulit sekali membuat Anda marah atau sedih. Anda sangat bisa diandalkan dalam kondisi genting/darurat.";
-            }
-
-            // 3. KEDISIPLINAN (P)
-            let disiplin = "";
-            if(s.P > 14) {
-                disiplin = "<b>Cenderung Kritis:</b> Anda tidak suka dikekang oleh banyak aturan kecil. Anda lebih peduli pada target besar. Kadang cara Anda bekerja terlihat unik atau berbeda dari orang kebanyakan.";
-            } else {
-                disiplin = "<b>Sangat Teratur:</b> Anda adalah pengikut aturan yang baik. Anda sopan, tertib, dan menghargai prosedur. Anda sangat cocok untuk pekerjaan yang butuh ketelitian dan kepatuhan tinggi.";
-            }
-
-            // 4. VALIDITAS (L)
-            if (s.L > 12) {
-                status = "Tidak Valid";
-                narasi = "<p style='color:#dc2626;'><b>Mohon Maaf:</b> Hasil analisis kami mendeteksi jawaban yang kurang alami (seolah-olah ingin terlihat sempurna). Kami menyarankan konsultasi langsung untuk hasil yang lebih akurat.</p>";
-            } else {
-                if (s.N > 18) status = "Belum Memenuhi Standar";
-                narasi = `
-                    <span class="section-title">👉 Gaya Berkomunikasi:</span> ${gayaBergaul}<br>
-                    <span class="section-title">👉 Ketenangan Batin:</span> ${kematanganEmosi}<br>
-                    <span class="section-title">👉 Sikap Kerja:</span> ${disiplin}<br>
-                    <p style="margin-top:20px; font-weight:bold; color:#1e40af; border-top: 2px dashed #ddd; pt-2">
-                        Kesimpulan Akhir: Anda dinyatakan ${status}.
-                    </p>
-                `;
-            }
-
-            return { s, status, narasi };
-        }
-    };
-
-    // Database Soal A2 Sederhana
     const bankSoal = [
-        "Saya merasa penuh energi saat harus mengerjakan banyak hal sekaligus.",
-        "Terkadang saya menunda pekerjaan yang membosankan.",
-        "Saya sering merasa khawatir tanpa alasan yang jelas.",
-        "Saya merasa sangat nyaman saat berada dalam sebuah pesta besar.",
-        "Saya lebih suka melakukan aktivitas sendirian daripada berkelompok.",
-        "Saya pernah melanggar instruksi kerja karena merasa cara saya lebih baik.",
-        "Kejujuran adalah nilai yang paling saya junjung tinggi.",
-        "Kritik kecil dari orang lain sering membuat saya merasa sedih.",
-        "Saya tetap bisa mengontrol diri meskipun sedang sangat marah.",
-        "Saya pernah berucap kurang sopan saat sedang sangat kesal.",
-        "Membantu orang lain secara sukarela membuat saya merasa senang.",
-        "Tiba-tiba saya bisa merasa tegang padahal tidak ada masalah.",
-        "Saya tidak ragu untuk segera mengambil keputusan penting.",
-        "Saya sering merasa tidak yakin apakah saya cukup berbakat.",
-        "Sejujurnya, saya pernah sedikit berbohong untuk menghindari konflik.",
-        "Bicara di depan banyak orang adalah sesuatu yang saya nikmati.",
-        "Masalah kecil terkadang terasa sangat melelahkan secara mental.",
-        "Dalam situasi darurat, saya tetap bisa berpikir secara tenang.",
-        "Terkadang muncul keinginan dalam hati untuk membalas perlakuan buruk orang.",
-        "Saya selalu patuh pada peraturan yang berlaku di masyarakat.",
-        "Bagi saya, bekerja sendiri jauh lebih efektif daripada kolaborasi.",
-        "Saya bisa berbaur dengan cepat di lingkungan pergaulan yang baru.",
-        "Saya sering memikirkan hal-hal buruk yang mungkin terjadi di masa depan.",
-        "Saya pernah mengambil barang milik orang lain meski nilainya kecil.",
-        "Saya sangat senang berkenalan dengan orang-orang baru.",
-        "Emosi saya seringkali meledak jika keinginan saya tidak dituruti.",
-        "Setiap tindakan saya selalu didasari oleh pertimbangan yang matang.",
-        "Saya pernah melanggar rambu lalu lintas secara sengaja.",
-        "Saya merasa memiliki kemampuan untuk memimpin kelompok.",
-        "Rasa rendah diri terkadang menghambat saya dalam bertindak.",
-        "Saya menerima masukan orang lain sebagai cara untuk belajar.",
-        "Saya sering merasa tidak tenang meskipun situasi sedang damai.",
-        "Saya pernah merasa sangat ingin menyakiti orang yang menyebalkan.",
-        "Menjaga kesantunan adalah hal yang sangat penting bagi saya.",
-        "Perasaan saya bisa berubah dari senang ke sedih dengan sangat cepat.",
-        "Menjadi perhatian utama dalam suatu acara membuat saya senang.",
-        "Saya mampu menahan keinginan impulsif dalam diri saya.",
-        "Terkadang saya melakukan sesuatu tanpa memikirkan dampaknya.",
-        "Saya dikenal sebagai orang yang ramah and mudah bergaul.",
-        "Ketakutan akan kegagalan seringkali menghantui pikiran saya.",
-        "Bagi saya, aturan adalah sesuatu yang tidak boleh dilanggar.",
-        "Saya pernah melakukan sedikit kecurangan agar urusan saya cepat selesai.",
-        "Tantangan yang sulit justru membuat saya semakin bersemangat.",
-        "Saya mudah panik jika terjadi sesuatu yang di luar rencana.",
-        "Saya bisa ikut merasakan kesedihan yang dialami orang lain.",
-        "Saya cenderung bereaksi keras jika merasa harga diri saya diusik.",
-        "Dalam menyelesaikan masalah, saya lebih mengandalkan logika.",
-        "Rasa sedih yang mendalam terkadang datang secara tiba-tiba.",
-        "Saya suka jika orang lain memperhatikan apa yang saya kerjakan.",
-        "Saya lebih memilih diam daripada harus bertengkar dengan orang lain.",
-        "Menyelesaikan tanggung jawab adalah kewajiban nomor satu bagi saya.",
-        "Kadang saya ingin melepaskan semua tanggung jawab yang saya pikul.",
-        "Secara umum, saya memiliki kondisi psikis yang stabil.",
-        "Beban hidup seringkali membuat saya merasa sangat stres.",
-        "Saya memegang teguh janji yang telah saya buat.",
-        "Saya pernah memberikan alasan palsu agar tidak disalahkan.",
-        "Saya bisa menyesuaikan diri dengan cepat saat teknologi baru muncul.",
-        "Rasa takut akan masa depan sering membuat saya sulit tidur.",
-        "Saya adalah orang yang sangat tertib dan disiplin.",
-        "Saya pernah mengabaikan kesepakatan karena alasan pribadi.",
-        "Saya tidak pernah menyesali keputusan yang sudah saya ambil.",
-        "Pikiran saya jarang bisa merasa tenang saat sedang sendirian.",
-        "Saya tetap bersikap tenang meski ada orang yang memancing amarah.",
-        "Saya pernah mengumpat karena merasa sangat kecewa.",
-        "Menjalin hubungan baik dengan semua orang adalah kebiasaan saya.",
-        "Saya sering merasa cemas jika orang lain membicarakan saya.",
-        "Saya memiliki pengendalian diri yang sangat baik.",
-        "Saya sering melakukan sesuatu hanya karena mengikuti dorongan hati.",
-        "Etika dalam bertindak adalah hal yang wajib saya ikuti.",
-        "Saya selalu berusaha mencari solusi untuk memperbaiki diri.",
-        "Membantu sesama adalah bagian dari prinsip hidup saya.",
-        "Menghadapi situasi baru sering membuat saya merasa gugup.",
-        "Saya berani mengambil risiko untuk mencapai tujuan.",
-        "Saya sering merasa ragu apakah pilihan saya sudah tepat.",
-        "Saya pernah secara tidak sengaja membocorkan rahasia teman.",
-        "Saya merasa sangat percaya diri saat harus presentasi.",
-        "Masalah sepele terkadang membuat energi mental saya terkuras.",
-        "Saya adalah orang yang mampu tenang di tengah kekacauan.",
-        "Saya pernah merasa sangat benci terhadap seseorang.",
-        "Saya selalu mengikuti petunjuk atasan dengan patuh.",
-        "Bekerja tanpa gangguan orang lain membuat saya lebih produktif.",
-        "Perubahan rencana mendadak tidak membuat saya bingung.",
-        "Saya sering merasa was-was meskipun tidak ada ancaman nyata.",
-        "Saya pernah memakai fasilitas umum untuk kepentingan pribadi saya.",
-        "Bertemu dengan banyak orang adalah cara saya melepas penat.",
-        "Kesabaran saya cukup luas dalam menghadapi orang yang rumit.",
-        "Saya selalu merencanakan segala sesuatu dengan sangat detail.",
-        "Saya pernah melanggar norma sosial demi mencapai keinginan saya.",
-        "Saya merasa mampu meyakinkan orang lain dengan pendapat saya.",
-        "Saya sering merasa rendah diri saat membandingkan diri dengan orang lain.",
-        "Saya adalah orang yang konsisten dengan prinsip hidup saya.",
-        "Saya sering merasa bingung jika harus memilih di antara dua hal.",
-        "Kadang saya merasa hidup saya tidak memiliki arah yang jelas.",
-        "Saya sangat menghargai privasi dan hak-hak orang lain.",
-        "Berada di tengah keramaian terkadang justru membuat saya merasa sepi.",
-        "Saya menyukai tantangan baru yang memacu adrenalin.",
-        "Saya merasa diri saya memiliki kelebihan dibanding rekan yang lain.",
-        "Saya adalah pribadi yang mudah memaafkan kesalahan orang lain.",
-        "Saya mudah merasa jenuh jika harus melakukan hal yang sama berulang-ulang."
+        "1. Saya merasa penuh energi saat harus mengerjakan banyak hal sekaligus.",
+        "2. Terkadang saya menunda pekerjaan yang membosankan.",
+        "3. Saya sering merasa khawatir tanpa alasan yang jelas.",
+        "4. Saya merasa sangat nyaman saat berada dalam sebuah pesta besar.",
+        "5. Saya lebih suka melakukan aktivitas sendirian daripada berkelompok.",
+        "6. Saya pernah melanggar instruksi kerja karena merasa cara saya lebih baik.",
+        "7. Kejujuran adalah nilai yang paling saya junjung tinggi.",
+        "8. Kritik kecil dari orang lain sering membuat saya merasa sedih.",
+        "9. Saya tetap bisa mengontrol diri meskipun sedang sangat marah.",
+        "10. Saya pernah berucap kurang sopan saat sedang sangat kesal.",
+        "11. Membantu orang lain secara sukarela membuat saya merasa senang.",
+        "12. Tiba-tiba saya bisa merasa tegang padahal tidak ada masalah.",
+        "13. Saya tidak ragu untuk segera mengambil keputusan penting.",
+        "14. Saya sering merasa tidak yakin apakah saya cukup berbakat.",
+        "15. Sejujurnya, saya pernah sedikit berbohong untuk menghindari konflik.",
+        "16. Bicara di depan banyak orang adalah sesuatu yang saya nikmati.",
+        "17. Masalah kecil terkadang terasa sangat melelahkan secara mental.",
+        "18. Dalam situasi darurat, saya tetap bisa berpikir secara tenang.",
+        "19. Terkadang muncul keinginan dalam hati untuk membalas perlakuan buruk orang.",
+        "20. Saya selalu patuh pada peraturan yang berlaku di masyarakat.",
+        "21. Bagi saya, bekerja sendiri jauh lebih efektif daripada kolaborasi.",
+        "22. Saya bisa berbaur dengan cepat di lingkungan pergaulan yang baru.",
+        "23. Saya sering memikirkan hal-hal buruk yang mungkin terjadi di masa depan.",
+        "24. Saya pernah mengambil barang milik orang lain meski nilainya kecil.",
+        "25. Saya sangat senang berkenalan dengan orang-orang baru.",
+        "26. Emosi saya seringkali meledak jika keinginan saya tidak dituruti.",
+        "27. Setiap tindakan saya selalu didasari oleh pertimbangan yang matang.",
+        "28. Saya pernah melanggar rambu lalu lintas secara sengaja.",
+        "29. Saya merasa memiliki kemampuan untuk memimpin kelompok.",
+        "30. Rasa rendah diri terkadang menghambat saya dalam bertindak.",
+        "31. Saya menerima masukan orang lain sebagai cara untuk belajar.",
+        "32. Saya sering merasa tidak tenang meskipun situasi sedang damai.",
+        "33. Saya pernah merasa sangat ingin menyakiti orang yang menyebalkan.",
+        "34. Menjaga kesantunan adalah hal yang sangat penting bagi saya.",
+        "35. Perasaan saya bisa berubah dari senang ke sedih dengan sangat cepat.",
+        "36. Menjadi perhatian utama dalam suatu acara membuat saya senang.",
+        "37. Saya mampu menahan keinginan impulsif dalam diri saya.",
+        "38. Terkadang saya melakukan sesuatu tanpa memikirkan dampaknya.",
+        "39. Saya dikenal sebagai orang yang ramah dan mudah bergaul.",
+        "40. Ketakutan akan kegagalan seringkali menghantui pikiran saya.",
+        "41. Bagi saya, aturan adalah sesuatu yang tidak boleh dilanggar.",
+        "42. Saya pernah melakukan sedikit kecurangan agar urusan saya cepat selesai.",
+        "43. Tantangan yang sulit justru membuat saya semakin bersemangat.",
+        "44. Saya mudah panik jika terjadi sesuatu yang di luar rencana.",
+        "45. Saya bisa ikut merasakan kesedihan yang dialami orang lain.",
+        "46. Saya cenderung bereaksi keras jika merasa harga diri saya diusik.",
+        "47. Dalam menyelesaikan masalah, saya lebih mengandalkan logika.",
+        "48. Rasa sedih yang mendalam terkadang datang secara tiba-tiba.",
+        "49. Saya suka jika orang lain memperhatikan apa yang saya kerjakan.",
+        "50. Saya lebih memilih diam daripada harus bertengkar dengan orang lain.",
+        "51. Menyelesaikan tanggung jawab adalah kewajiban nomor satu bagi saya.",
+        "52. Kadang saya ingin melepaskan semua tanggung jawab yang saya pikul.",
+        "53. Secara umum, saya memiliki kondisi psikis yang stabil.",
+        "54. Beban hidup seringkali membuat saya merasa sangat stres.",
+        "55. Saya memegang teguh janji yang telah saya buat.",
+        "56. Saya pernah memberikan alasan palsu agar tidak disalahkan.",
+        "57. Saya bisa menyesuaikan diri dengan cepat saat teknologi baru muncul.",
+        "58. Rasa takut akan masa depan sering membuat saya sulit tidur.",
+        "59. Saya adalah orang yang sangat tertib dan disiplin.",
+        "60. Saya pernah mengabaikan kesepakatan karena alasan pribadi.",
+        "61. Saya tidak pernah menyesali keputusan yang sudah saya ambil.",
+        "62. Pikiran saya jarang bisa merasa tenang saat sedang sendirian.",
+        "63. Saya tetap bersikap tenang meski ada orang yang memancing amarah.",
+        "64. Saya pernah mengumpat karena merasa sangat kecewa.",
+        "65. Menjalin hubungan baik dengan semua orang adalah kebiasaan saya.",
+        "66. Saya sering merasa cemas jika orang lain membicarakan saya.",
+        "67. Saya memiliki pengendalian diri yang sangat baik.",
+        "68. Saya sering melakukan sesuatu hanya karena mengikuti dorongan hati.",
+        "69. Etika dalam bertindak adalah hal yang wajib saya ikuti.",
+        "70. Saya selalu berusaha mencari solusi untuk memperbaiki diri.",
+        "71. Membantu sesama adalah bagian dari prinsip hidup saya.",
+        "72. Menghadapi situasi baru sering membuat saya merasa gugup.",
+        "73. Saya berani mengambil risiko untuk mencapai tujuan.",
+        "74. Saya sering merasa ragu apakah pilihan saya sudah tepat.",
+        "75. Saya pernah secara tidak sengaja membocorkan rahasia teman.",
+        "76. Saya merasa sangat percaya diri saat harus presentasi.",
+        "77. Masalah sepele terkadang membuat energi mental saya terkuras.",
+        "78. Saya adalah orang yang mampu tenang di tengah kekacauan.",
+        "79. Saya pernah merasa sangat benci terhadap seseorang.",
+        "80. Saya selalu mengikuti petunjuk atasan dengan patuh.",
+        "81. Bekerja tanpa gangguan orang lain membuat saya lebih produktif.",
+        "82. Perubahan rencana mendadak tidak membuat saya bingung.",
+        "83. Saya sering merasa was-was meskipun tidak ada ancaman nyata.",
+        "84. Saya pernah memakai fasilitas umum untuk kepentingan pribadi saya.",
+        "85. Bertemu dengan banyak orang adalah cara saya melepas penat.",
+        "86. Kesabaran saya cukup luas dalam menghadapi orang yang rumit.",
+        "87. Saya selalu merencanakan segala sesuatu dengan sangat detail.",
+        "88. Saya pernah melanggar norma sosial demi mencapai keinginan saya.",
+        "89. Saya merasa mampu meyakinkan orang lain dengan pendapat saya.",
+        "90. Saya sering merasa rendah diri saat membandingkan diri dengan orang lain.",
+        "91. Saya adalah orang yang konsisten dengan prinsip hidup saya.",
+        "92. Saya sering merasa bingung jika harus memilih di antara dua hal.",
+        "93. Kadang saya merasa hidup saya tidak memiliki arah yang jelas.",
+        "94. Saya sangat menghargai privasi dan hak-hak orang lain.",
+        "95. Berada di tengah keramaian terkadang justru membuat saya merasa sepi.",
+        "96. Saya menyukai tantangan baru yang memacu adrenalin.",
+        "97. Saya merasa diri saya memiliki kelebihan dibanding rekan yang lain.",
+        "98. Saya adalah pribadi yang mudah memaafkan kesalahan orang lain.",
+        "99. Saya sangat teliti dalam mengerjakan setiap detail tugas.",
+        "100. Saya mudah merasa jenuh jika harus melakukan hal yang sama berulang-ulang."
     ];
 
-    let currentIdx = 0, jawabanUser = [], userName = "";
+    const keys = {
+        E_Ya: [1, 4, 16, 22, 25, 36, 39, 43, 49, 73, 76, 85, 89, 96, 97],
+        E_Tidak: [5, 21, 50, 81],
+        N_Ya: [3, 8, 12, 14, 17, 23, 26, 30, 32, 35, 40, 44, 48, 52, 54, 58, 62, 66, 72, 74, 77, 83, 90, 92, 93, 95, 100],
+        P_Ya: [6, 10, 15, 19, 24, 28, 33, 38, 42, 46, 56, 60, 64, 68, 75, 79, 84, 88],
+        P_Tidak: [2, 29, 37, 67, 78, 80, 86, 87, 91, 94, 98, 99],
+        L_Ya: [7, 9, 11, 18, 20, 27, 31, 34, 37, 41, 45, 47, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 70, 71, 78, 80, 82, 86, 87, 91, 94, 98, 99]
+    };
 
-    function mulaiKuis() {
-        userName = document.getElementById('input-nama').value.trim();
-        if (!userName) return alert("Ketik nama Anda dulu.");
+    let current = 0, userAnswers = new Array(100).fill(null), pNama = "";
+
+    function startTest() {
+        pNama = document.getElementById('user-name').value.trim();
+        if(!pNama) return alert("Silakan isi nama lengkap.");
         document.getElementById('login-area').style.display = 'none';
         document.getElementById('quiz-area').style.display = 'block';
-        const grid = document.getElementById('nav-grid');
-        for (let i = 1; i <= 100; i++) {
-            let d = document.createElement('div'); d.className = 'dot'; d.innerText = i; grid.appendChild(d);
+        document.getElementById('label-user').innerText = pNama;
+        initNav(); render();
+    }
+
+    function initNav() {
+        const grid = document.getElementById('nav-grid'); grid.innerHTML = '';
+        for(let i=0; i<100; i++) {
+            let item = document.createElement('div');
+            item.className = 'nav-item'; item.id = 'nav-' + i;
+            item.innerText = i + 1;
+            item.onclick = () => { current = i; render(); };
+            grid.appendChild(item);
         }
-        tampilkanSoal();
     }
 
-    function tampilkanSoal() {
-        document.getElementById('display-soal').innerText = bankSoal[currentIdx];
-        document.getElementById('no-skr').innerText = `Soal ${currentIdx + 1} / 100`;
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((d, i) => { d.classList.remove('active'); if (i === currentIdx) d.classList.add('active'); });
+    function render() {
+        document.getElementById('q-text').innerText = bankSoal[current];
+        document.getElementById('q-progress').innerText = `Soal ${current + 1} / 100`;
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+        document.getElementById('nav-' + current).classList.add('active');
+        document.getElementById('btn-ya').className = 'btn-opt' + (userAnswers[current] === 'YA' ? ' selected' : '');
+        document.getElementById('btn-tidak').className = 'btn-opt' + (userAnswers[current] === 'TIDAK' ? ' selected' : '');
     }
 
-    function simpan(p) {
-        jawabanUser[currentIdx] = p;
-        document.querySelectorAll('.dot')[currentIdx].classList.add('done');
-        if (++currentIdx < 100) tampilkanSoal(); else selesaikan();
+    function recordAnswer(val) {
+        userAnswers[current] = val;
+        document.getElementById('nav-' + current).classList.add('filled');
+        if(current < 99) { current++; render(); }
+        else { calculate(); }
     }
 
-    function selesaikan() {
+    function calculate() {
         document.getElementById('quiz-area').style.display = 'none';
         document.getElementById('result-area').style.display = 'block';
-        const res = AssessmentEngine.analyze(jawabanUser);
-        const b = document.getElementById('badge-final');
-        b.innerText = res.status;
-        b.className = `badge ${res.status === 'Memenuhi Standar' ? 'ms' : (res.status === 'Tidak Valid' ? 'invalid' : 'tms')}`;
-        document.getElementById('narrative-text').innerHTML = res.narasi;
-        fetch(SCRIPT_URL, {
-            method: "POST", mode: "no-cors",
-            body: JSON.stringify({ nama: userName, E: res.s.E, N: res.s.N, P: res.s.P, L: res.s.L, status: res.status, jawaban: jawabanUser.join(",") })
-        }).then(() => { document.getElementById('status-cloud').innerHTML = "✅ Database Terupdate."; });
+        document.getElementById('display-nama').innerText = pNama;
+        document.getElementById('report-date').innerText = "Waktu Selesai: " + new Date().toLocaleString();
+
+        let sc = { E: 0, N: 0, P: 0, L: 0 };
+        keys.E_Ya.forEach(n => { if(userAnswers[n-1]==='YA') sc.E++; });
+        keys.E_Tidak.forEach(n => { if(userAnswers[n-1]==='TIDAK') sc.E++; });
+        keys.N_Ya.forEach(n => { if(userAnswers[n-1]==='YA') sc.N++; });
+        keys.P_Ya.forEach(n => { if(userAnswers[n-1]==='YA') sc.P++; });
+        keys.P_Tidak.forEach(n => { if(userAnswers[n-1]==='TIDAK') sc.P++; });
+        keys.L_Ya.forEach(n => { if(userAnswers[n-1]==='YA') sc.L++; });
+
+        const ket = {
+            E: sc.E > 15 ? "Ekstrovert (Aktif)" : (sc.E >= 9 ? "Ambivert (Seimbang)" : "Introvert (Pasif)"),
+            N: sc.N > 15 ? "Labil" : "Stabil",
+            P: sc.P > 14 ? "Keras" : "Normal",
+            L: sc.L > 12 ? "Kurang Jujur" : "Valid"
+        };
+
+        document.getElementById('res-table-body').innerHTML = `
+            <tr><td style="text-align:left"><b>Gaya Bergaul (E)</b></td><td>${sc.E}</td><td>${ket.E}</td></tr>
+            <tr><td style="text-align:left"><b>Ketenangan Hati (N)</b></td><td>${sc.N}</td><td>${ket.N}</td></tr>
+            <tr><td style="text-align:left"><b>Kepedulian Sosial (P)</b></td><td>${sc.P}</td><td>${ket.P}</td></tr>
+            <tr><td style="text-align:left"><b>Skala Kejujuran (L)</b></td><td>${sc.L}</td><td>${ket.L}</td></tr>
+        `;
+
+        const b = document.getElementById('res-badge');
+        if(sc.L > 12 || sc.N > 15) { b.innerText = "BELUM MEMENUHI STANDAR"; b.className = "badge tms"; }
+        else { b.innerText = "MEMENUHI STANDAR"; b.className = "badge ms"; }
+
+        document.getElementById('narrative-text').innerHTML = `
+            <p><b>1. Gaya Bergaul (E):</b> Mengukur seberapa aktif kamu. Skor tinggi (${sc.E}) berarti kamu orang yang ceria, suka bergaul, dan penuh semangat. Skor rendah berarti kamu lebih tenang.</p>
+            <p><b>2. Ketenangan Hati (N):</b> Mengukur kestabilan emosi. Di seleksi Polri, skor ini <b>tidak boleh lebih dari 15</b>. Skor kamu adalah <b>${sc.N}</b>. Jika terlalu tinggi, tandanya kamu mudah cemas saat ada tekanan.</p>
+            <p><b>3. Kepedulian Sosial (P):</b> Mengukur kepedulian sosial. Skor yang normal menunjukkan kamu bisa mengikuti aturan dan punya rasa empati.</p>
+            <p><b>4. Skala Kejujuran (L):</b> Mengukur kejujuran jawaban. Di seleksi Polri, skor ini <b>tidak boleh lebih dari 12</b>. Skor kamu <b>${sc.L}</b> menunjukkan sejauh mana kamu menjawab dengan apa adanya tanpa dibuat-buat.</p>
+        `;
     }
 </script>
 </body>
